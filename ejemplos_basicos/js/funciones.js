@@ -51,5 +51,7 @@ const generos = {
     }
 }
 
+//los metodos pueden crearse o guardarse fuera del objeto
+
 generos.musicales('jotopo');
 generos.humanos('Femenino');
