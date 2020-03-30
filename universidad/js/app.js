@@ -66,26 +66,72 @@
 
 //CREAR ELEMENTOS CON JAVASCRIPT
 
-const enlace = document.createElement('a');
+//const enlace = document.createElement('a');
 
 //crear clase
-enlace.className = 'enlace';
+//enlace.className = 'enlace';
  
 //crear id
-enlace.id = 'nuevo-id';
+//enlace.id = 'nuevo-id';
 
 //crear atributo
-enlace.setAttribute('href', '#');
+//enlace.setAttribute('href', '#');
 
 //añadir texto 1
-
-enlace.textContent = 'Nuevo enlace'
+//enlace.textContent = 'Nuevo elemento creado por mi'
 
 //añadir texto 2 
 //enlace.appendChild(document.createTextNode('Otra forma de crear texto a un elmento creado por js'))
 
 //para crearlo al html
-document.querySelector('#secundaria').appendChild(enlace);
+//document.querySelector('#secundaria').appendChild(enlace);
+//console.log(enlace);
 
 
-console.log(enlace);
+//REEMPLAZAR ELEMENTOS CON JS
+
+const nuevoEncabezado = document.createElement('h2');
+nuevoEncabezado.id = 'encabezado';
+nuevoEncabezado.appendChild(document.createTextNode('Ecabezado creado por mi'));
+const anterior = document.querySelector('#encabezado');
+const elPadre = document.querySelector('#lista-cursos');
+
+//REEMPLAZAR
+elPadre.replaceChild(nuevoEncabezado,anterior);
+//console.log(anterior.parentElement);
+
+
+//ELIMINAR
+const enlaces = document.querySelectorAll('.enlace');
+const navegacion = document.querySelector('#principal');
+
+enlaces[0].remove();
+navegacion.removeChild(enlaces[4]);
+
+//console.log(navegacion);
+
+
+
+//AGREGAR CLASES DE CSS
+
+const primerLi= document.querySelector('.enlace');
+
+let elemento;
+
+elemento = primerLi.className;
+
+//elemento = primerLi.classList.remove('nueva-clase'); para quitar
+//elemento = primerLi.classList;
+elemento = primerLi.classList.add('nueva-clase');
+
+//AGREGAR ATRIBUTOS
+elemento = primerLi.getAttribute('href');//creo atributo . Obtiene el valor
+elemento = primerLi.setAttribute('href' , 'https://facebook.com' ); //modifica o añade el atributo si no lotiene
+primerLi.setAttribute('data-id',20);
+primerLi.hasAttribute('data-id');//comprueba
+primerLi.removeAttribute('data-id');
+
+elemento = primerLi;
+console.log(elemento);
+
+
