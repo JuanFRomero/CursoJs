@@ -59,6 +59,33 @@
 //SIBBILING
 //los sibbling son los que NO tienen mas elementos indexados
 
-const enlaces = document.querySelectorAll('.enlace');
+//const enlaces = document.querySelectorAll('.enlace');
 
-console.log(enlaces[0].nextElementSibling.nextElementSibling.parentElement.children[4]);
+//console.log(enlaces[0].nextElementSibling.nextElementSibling.parentElement.children[4]);
+
+
+//CREAR ELEMENTOS CON JAVASCRIPT
+
+const enlace = document.createElement('a');
+
+//crear clase
+enlace.className = 'enlace';
+ 
+//crear id
+enlace.id = 'nuevo-id';
+
+//crear atributo
+enlace.setAttribute('href', '#');
+
+//añadir texto 1
+
+enlace.textContent = 'Nuevo enlace'
+
+//añadir texto 2 
+//enlace.appendChild(document.createTextNode('Otra forma de crear texto a un elmento creado por js'))
+
+//para crearlo al html
+document.querySelector('#secundaria').appendChild(enlace);
+
+
+console.log(enlace);
