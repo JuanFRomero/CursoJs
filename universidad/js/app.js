@@ -114,24 +114,101 @@ navegacion.removeChild(enlaces[4]);
 
 //AGREGAR CLASES DE CSS
 
-const primerLi= document.querySelector('.enlace');
+//const primerLi= document.querySelector('.enlace');
 
-let elemento;
+//let elemento;
 
-elemento = primerLi.className;
+//elemento = primerLi.className;
 
 //elemento = primerLi.classList.remove('nueva-clase'); para quitar
 //elemento = primerLi.classList;
-elemento = primerLi.classList.add('nueva-clase');
+//elemento = primerLi.classList.add('nueva-clase');
 
 //AGREGAR ATRIBUTOS
-elemento = primerLi.getAttribute('href');//creo atributo . Obtiene el valor
-elemento = primerLi.setAttribute('href' , 'https://facebook.com' ); //modifica o añade el atributo si no lotiene
-primerLi.setAttribute('data-id',20);
-primerLi.hasAttribute('data-id');//comprueba
-primerLi.removeAttribute('data-id');
+//elemento = primerLi.getAttribute('href');//creo atributo . Obtiene el valor
+//elemento = primerLi.setAttribute('href' , 'https://facebook.com' ); //modifica o añade el atributo si no lotiene
+//primerLi.setAttribute('data-id',20);
+//.hasAttribute('data-id');//comprueba
+//primerLi.removeAttribute('data-id');
 
-elemento = primerLi;
-console.log(elemento);
+//elemento = primerLi;
+//console.log(elemento);
 
 
+//BUBBLING
+//Es cuando se tiene un elemento y se da click a ese mismo otros elementos se seleccionan igualmente
+
+//const card = document.querySelector('.card');
+//const infoCurso = document.querySelector('.info-card');
+//const agregarCarrito = document.querySelector('.agregar-carrito');
+
+
+
+//card.addEventListener('click', function(e){
+  //  console.log('click en card');
+  //  e.stopPropagation();
+//});
+
+//infoCurso.addEventListener('click', function(e){
+  //  console.log('click en info curso');
+  //  e.stopPropagation();
+//});
+
+//agregarCarrito.addEventListener('click' , function (e) {
+  //  console.log('click en agregar carrito');
+  //  e.stopPropagation();
+
+//});
+
+//DELEGATION
+
+//Solo revisa a que elemento se le da click y si tiene la clase que se quiere obtener
+
+
+document.body.addEventListener('click',eliminarElemento);
+
+function eliminarElemento(e) {
+    e.preventDefault();
+
+   // console.log('click');
+
+   // console.log(e.target.classList);
+
+    if(e.target.classList.contains('borrar-curso')){
+        //console.log('si');
+        console.log(e.target.parentElement.parentElement.remove());
+
+    }
+    if(e.target.classList.contains('agregar-carrito')){
+        console.log('curso agregado');
+    }
+}
+
+
+//LOCAL STORAGE
+
+//permite añadir cierta información en el navegador
+
+
+//AGREGAR a localStorage
+
+//nuevo elemento
+localStorage.setItem('nombre','Juan'); //setIten sirve para añadir  y generalmente toma una llave un valor, para acceder se inspecciona la pagina y se va a la pestaña de application, luego local storage
+//desventaja , la info guardada con local storage se borra si se borra el cahé de la pagina o desde la misma consola del navegador
+
+//sesion storage
+sessionStorage.setItem('nombre','yoleana');
+//desventaja, se borra al cerrar el navegador
+
+//ELIMINAR
+//localStorage.removeItem('nombre');
+
+//eliminar TODO  el local storage
+
+//localStorage.clear();
+
+localStorage.setItem('nombre' , 'happy');
+
+const nombre = localStorage.getItem('nombre');
+
+console.log(nombre);
